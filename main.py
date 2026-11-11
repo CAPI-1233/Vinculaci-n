@@ -78,9 +78,9 @@ def consultar_libro(id: int):
     if id not in libros:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail={"id": id, "descripcion": "Libro no encontrado en esta base de datos"},
+            detail={"id": id, "descripcion": "Libro no encontrado (versión actualizada)"},
         )
-    return {"titulo": libros[id]}
+    return {"titulo": libros[id], "mensaje": "Consulta realizada desde Render (v2)"}
 
 
 @app.post("/libro")
